@@ -48,6 +48,28 @@ export default function Footer() {
     }
   }, { scope: footerRef });
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+
+      const startY = window.scrollY;
+      const targetY = targetElement.getBoundingClientRect().top + window.scrollY;
+      const scrollObj = { y: startY };
+
+      gsap.to(scrollObj, {
+        y: targetY,
+        duration: 1.1,
+        ease: "power3.inOut",
+        onUpdate: () => {
+          window.scrollTo(0, scrollObj.y);
+        },
+      });
+    }
+  };
+
   return (
     <footer ref={footerRef} className="w-full bg-[#0F172A] pt-24 pb-10 px-8 md:px-16 text-[#F9F6F0] overflow-hidden">
       <div className="max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-between gap-20 xl:gap-12">
@@ -65,34 +87,35 @@ export default function Footer() {
         {/* Right Side: Links Grid */}
         <div className="xl:w-3/5 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-16">
           
-          {/* Col 1 — Navigation (from the site's nav menu) */}
+          {/* Col 1 — Navigation */}
           <div className="footer-col flex flex-col">
             <h4 className="font-bold text-sm tracking-tight mb-7">Navigation</h4>
             <div className="flex flex-col gap-5 font-serif text-[17px] opacity-90" style={{ fontFamily: "'Georgia', serif" }}>
-              <a href="#" className="hover:opacity-60 transition-opacity">Home</a>
-              <a href="#clients" className="hover:opacity-60 transition-opacity">Clients</a>
-              <a href="#accredianEdge" className="hover:opacity-60 transition-opacity">Accredian Edge</a>
-              <a href="#cat" className="hover:opacity-60 transition-opacity">CAT Framework</a>
-              <a href="#howItWorks" className="hover:opacity-60 transition-opacity">How It Works</a>
+              <a href="#hero" onClick={(e) => handleNavClick(e, "#hero")} className="hover:opacity-60 transition-opacity">Home</a>
+              <a href="#features" onClick={(e) => handleNavClick(e, "#features")} className="hover:opacity-60 transition-opacity">Features</a>
+              <a href="#approach" onClick={(e) => handleNavClick(e, "#approach")} className="hover:opacity-60 transition-opacity">C.A.T. Framework</a>
+              <a href="#segmentation" onClick={(e) => handleNavClick(e, "#segmentation")} className="hover:opacity-60 transition-opacity">Course Segmentation</a>
+              <a href="#domains" onClick={(e) => handleNavClick(e, "#domains")} className="hover:opacity-60 transition-opacity">Domain Expertise</a>
             </div>
           </div>
           
-          {/* Col 2 — More */}
+          {/* Col 2 — Experience */}
           <div className="footer-col flex flex-col">
-            <h4 className="font-bold text-sm tracking-tight mb-7">More</h4>
+            <h4 className="font-bold text-sm tracking-tight mb-7">Explore</h4>
             <div className="flex flex-col gap-5 font-serif text-[17px] opacity-90" style={{ fontFamily: "'Georgia', serif" }}>
-              <a href="#faqs" className="hover:opacity-60 transition-opacity">FAQs</a>
-              <a href="#testimonials" className="hover:opacity-60 transition-opacity">Testimonials</a>
-              <a href="#stats" className="hover:opacity-60 transition-opacity">Our Impact</a>
-              <a href="https://accredian.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Accredian.com ↗</a>
+              <a href="#results" onClick={(e) => handleNavClick(e, "#results")} className="hover:opacity-60 transition-opacity">Our Approach</a>
+              <a href="#testimonials" onClick={(e) => handleNavClick(e, "#testimonials")} className="hover:opacity-60 transition-opacity">Testimonials</a>
+              <a href="#stats" onClick={(e) => handleNavClick(e, "#stats")} className="hover:opacity-60 transition-opacity">Track Record</a>
+              <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:opacity-60 transition-opacity">FAQ</a>
             </div>
           </div>
           
-          {/* Col 3 — Contact */}
+          {/* Col 3 — External & Contact */}
           <div className="footer-col flex flex-col">
-            <h4 className="font-bold text-sm tracking-tight mb-7">Contact</h4>
+            <h4 className="font-bold text-sm tracking-tight mb-7">Contact & Web</h4>
             <div className="flex flex-col gap-5 font-serif text-[17px] opacity-90" style={{ fontFamily: "'Georgia', serif" }}>
               <a href="mailto:enterprise@accredian.com" className="hover:opacity-60 transition-opacity">enterprise@accredian.com</a>
+              <a href="https://accredian.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Accredian.com ↗</a>
               <a href="https://accredian.com/contact-us" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Contact Us ↗</a>
             </div>
           </div>
