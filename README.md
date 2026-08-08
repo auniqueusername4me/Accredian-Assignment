@@ -24,6 +24,19 @@ This project is a high-fidelity recreation of the Accredian Enterprise website b
 4. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
+## Vercel Deployment Steps
+
+Deploying this Next.js app to Vercel is highly streamlined:
+
+1. **Push your code to GitHub:** Ensure all your latest commits (like the ones we just made) are pushed to your GitHub repository.
+2. **Log into Vercel:** Go to [Vercel.com](https://vercel.com) and log in with your GitHub account.
+3. **Add New Project:** Click the **"Add New..."** button and select **"Project"**.
+4. **Import Repository:** Find your `Accredian-Assignment` repository in the list and click **"Import"**.
+5. **Configure Project:** 
+   - Vercel will automatically detect that this is a **Next.js** framework project.
+   - You do not need to change the Build Command or Output Directory (Vercel sets them to `npm run build` and `.next` by default).
+6. **Deploy:** Click the **"Deploy"** button. Vercel will build the project and provide you with a live URL within minutes.
+
 ## Approach Taken
 
 My primary goal was to create a highly interactive and premium clone of the Accredian Enterprise page. I focused heavily on visual excellence, utilizing modern design trends like smooth scroll (Lenis), complex GSAP scroll animations, parallax backgrounds, and glassmorphism overlays.
