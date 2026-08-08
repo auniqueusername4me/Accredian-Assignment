@@ -41,8 +41,28 @@ export default function HeroSection({ onBookDemoClick }: HeroSectionProps) {
   const backdropRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
-  const navRef = useRef<HTMLElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (menuOpen) {
+      closeDrawer();
+    }
+    const targetId = href.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) return;
+
+    const startY = window.scrollY;
+    const targetY = targetElement.getBoundingClientRect().top + window.scrollY;
+    const scrollObj = { y: startY };
+
+    gsap.to(scrollObj, {
+      y: targetY,
+      duration: 1.1,
+      ease: "power3.inOut",
+      onUpdate: () => {
+        window.scrollTo(0, scrollObj.y);
+      },
+    });
+  };
 
   /* ─── Headline Entrance Animation (Cinematic Reveal) ──────────── */
   useGSAP(() => {
@@ -171,6 +191,7 @@ export default function HeroSection({ onBookDemoClick }: HeroSectionProps) {
             <a 
               key={idx} 
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="nav-anim text-[15px] font-semibold text-[#1a1a1a] hover:text-[#4F46E5] transition-colors"
             >
               {link.label}
@@ -275,7 +296,7 @@ export default function HeroSection({ onBookDemoClick }: HeroSectionProps) {
             <a
               key={link.label}
               href={link.href}
-              onClick={closeDrawer}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="nav-link group flex items-center justify-end gap-4 py-4 border-b border-slate-50 last:border-0"
               style={{ opacity: 0 }}
             >
