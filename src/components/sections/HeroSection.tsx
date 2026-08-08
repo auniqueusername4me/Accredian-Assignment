@@ -6,13 +6,12 @@ import { useGSAP } from "@gsap/react";
 
 const drawerLinks = [
   { label: "Solutions",           href: "#features",      featured: false },
-  { label: "Curriculum",          href: "#cat-framework", featured: false },
-  { label: "Enterprise Programs", href: "#programs",      featured: true  },
-  { label: "Impact",              href: "#stats",         featured: false },
-  { label: "Partnerships",        href: "#partners",      featured: false },
-  { label: "Guides",              href: "#guides",        featured: false },
-  { label: "Resources",           href: "#resources",     featured: false },
-  { label: "Contact Us",          href: "#footer",        featured: false },
+  { label: "C.A.T. Framework",     href: "#approach",      featured: false },
+  { label: "Course Segmentation",  href: "#segmentation",  featured: true  },
+  { label: "Domain Expertise",     href: "#domains",       featured: false },
+  { label: "Track Record",         href: "#stats",         featured: false },
+  { label: "Testimonials",         href: "#testimonials",  featured: false },
+  { label: "FAQ",                  href: "#faq",           featured: false },
 ];
 
 const AnimatedText = ({ text, className = "" }: { text: string; className?: string }) => {
@@ -160,24 +159,22 @@ export default function HeroSection({ onBookDemoClick }: HeroSectionProps) {
         </div>
 
         {/* Center/Right Nav Links (Desktop) */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8">
           {[
-            { label: "Solutions", hasDropdown: true },
-            { label: "Curriculum", hasDropdown: true },
-            { label: "Programs", hasDropdown: true },
-            { label: "Portfolio", hasDropdown: false },
-            { label: "Resources", hasDropdown: true },
+            { label: "Solutions", href: "#features" },
+            { label: "Approach", href: "#approach" },
+            { label: "Segmentation", href: "#segmentation" },
+            { label: "Expertise", href: "#domains" },
+            { label: "Impact", href: "#stats" },
+            { label: "FAQ", href: "#faq" },
           ].map((link, idx) => (
-            <div key={idx} className="flex items-center gap-1.5 cursor-pointer group nav-anim">
-              <span className="text-[15px] font-semibold text-[#1a1a1a] hover:opacity-70 transition-opacity">
-                {link.label}
-              </span>
-              {link.hasDropdown && (
-                <span className="text-[17px] font-medium text-[#1a1a1a] group-hover:opacity-70 transition-opacity leading-none pb-0.5">
-                  +
-                </span>
-              )}
-            </div>
+            <a 
+              key={idx} 
+              href={link.href}
+              className="nav-anim text-[15px] font-semibold text-[#1a1a1a] hover:text-[#4F46E5] transition-colors"
+            >
+              {link.label}
+            </a>
           ))}
           
           <button

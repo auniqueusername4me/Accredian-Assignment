@@ -117,15 +117,6 @@ export default function AboutSection() {
             <p className="text-[#475569] leading-relaxed text-base md:text-lg font-light">
               Accredian Enterprise bridges the gap between academic theory and industry demand, offering world-class strategic training tailored for the modern workforce. By combining cutting-edge curriculum design with expert mentorship, we create a learning ecosystem where education transcends traditional boundaries to become a holistic, career-accelerating experience.
             </p>
-
-            {/* CTA text link */}
-            <a
-              href="#story"
-              className="inline-flex items-center gap-2 mt-4 text-[#0B3D91] font-bold text-[13px] tracking-[0.15em] uppercase group w-fit pb-1 border-b border-transparent hover:border-[#0B3D91] transition-all duration-300"
-            >
-              READ ABOUT ACCREDIAN'S STORY
-              <span className="group-hover:translate-x-1 transition-transform duration-300 text-base">→</span>
-            </a>
           </div>
 
         </div>

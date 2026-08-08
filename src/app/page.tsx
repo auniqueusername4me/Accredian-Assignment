@@ -23,41 +23,63 @@ export default function Home() {
   return (
     <main className="relative bg-transparent overflow-x-hidden selection:bg-slate-900 selection:text-white">
 
-      {/* Section 1 — Hero (Minimalist clean look) */}
-      <HeroSection onBookDemoClick={() => setIsModalOpen(true)} />
+      {/* Section 1 — Hero */}
+      <div id="hero">
+        <HeroSection onBookDemoClick={() => setIsModalOpen(true)} />
+      </div>
 
-      {/* Section 3 — Welcome / Intro + facility photo */}
-      <WelcomeSection />
+      {/* Section 3 — Welcome / Intro */}
+      <div id="about">
+        <WelcomeSection />
+      </div>
 
       {/* Section 4 — Legacy / About */}
       <AboutSection />
 
       {/* Section 7 — Features Grid */}
-      <Features />
+      <div id="features">
+        <Features />
+      </div>
 
       {/* Section 8 — CAT Framework */}
-      <CATFramework />
+      <div id="approach">
+        <CATFramework />
+      </div>
 
       {/* Section 8.3 — Tailored Course Segmentation */}
-      <CourseSegmentation />
+      <div id="segmentation">
+        <CourseSegmentation />
+      </div>
 
       {/* Section 8.4 — Domain Expertise */}
-      <DomainExpertise />
+      <div id="domains">
+        <DomainExpertise />
+      </div>
 
       {/* Section 8.5 — Deliver Results */}
-      <DeliverResults />
+      <div id="results">
+        <DeliverResults />
+      </div>
 
       {/* Section 8.7 — Testimonials */}
-      <Testimonials />
+      <div id="testimonials">
+        <Testimonials />
+      </div>
 
       {/* Section 9 — Track Record (Stats) */}
-      <Stats />
+      <div id="stats">
+        <Stats />
+      </div>
 
       {/* Section 10 — FAQ Section */}
-      <FAQSection />
+      <div id="faq">
+        <FAQSection />
+      </div>
 
       {/* Footer */}
-      <Footer />
+      <div id="footer">
+        <Footer />
+      </div>
 
       {/* Lead capture modal */}
       <LeadFormModal
