@@ -216,7 +216,7 @@ export default function HeroSection({ onBookDemoClick }: HeroSectionProps) {
             letterSpacing: "-0.04em",
           }}
         >
-          <AnimatedText text="Your Enterprise." className="justify-center" />
+          <AnimatedText text="Upskill Your Workforce." className="justify-center" />
         </h1>
 
         {/* Subtitle / Caption — exact copy from enterprise.accredian.com */}
